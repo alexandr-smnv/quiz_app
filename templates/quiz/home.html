@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <div class="row justify-content-center">
+      {% for quiz in quizes %}
+        <div class="card" style="width: 30rem;">
+          <div class="card-body">
+            <h5 class="card-title">Название: {{ quiz.title }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Тема: {{ quiz.topic }}</h6>
+            <p class="card-text">Количество вопросов: {{ quiz.get_questions|length }}</p>
+            <a href="#" class="card-link">Играть</a>
+          </div>
+          <div class="card-footer text-muted">
+            {{ quiz.create_at }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
